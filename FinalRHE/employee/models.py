@@ -1,0 +1,38 @@
+from django.db import models
+from django.contrib.auth.models import User
+# Create your models here.
+class Information(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    first_name =models.CharField(max_length=100,default='--')
+    middle_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    father_first_name = models.CharField(max_length=100)
+    father_middle_name = models.CharField(max_length=100)
+    father_last_name = models.CharField(max_length=100)
+    date_of_birth = models.DateField(null=True,blank=True)
+    joining_date = models.DateField(null=True,blank=True)
+    resignation_date = models.DateField(null=True,blank=True)
+    email = models.EmailField()
+    phone_number1 = models.CharField(max_length=11,default='123')
+    phone_number2 = models.CharField(max_length=11,default='123')
+    address_lane1 = models.CharField(max_length=100)
+    address_lane2 = models.CharField(max_length=100)
+    address_lane3 = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    country = models.CharField(max_length=100)
+    profile_picture = models.ImageField(upload_to='profile_pic',null=True,blank=True,default='default.jpg')
+    bank_name = models.CharField(max_length=100)
+    bank_branch = models.CharField(max_length=100)
+    pan_number = models.CharField(max_length=50,default='123')
+    account_number = models.CharField(max_length=50,default='123')
+    ifsc_code = models.CharField(max_length=50)
+    micr_code = models.CharField(max_length=50)
+    adharcard_number = models.CharField(max_length=50,default='123')
+    document1 = models.ImageField(upload_to='documents',null=True,blank=True,default='default.jpg')
+    document2 = models.ImageField(upload_to='documents',null=True,blank=True,default='default.jpg')
+    document3 = models.ImageField(upload_to='documents',null=True,blank=True,default='default.jpg')
+    execution = models.IntegerField()
+    bd = models.IntegerField()
+    agreement_document = models.ImageField(upload_to='agreement',null=True,blank=True)
+
+
